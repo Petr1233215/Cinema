@@ -1,0 +1,16 @@
+﻿@*@{ 
+	Layout = null;
+}*@
+@model Cinema.Models.CinemaViewModel
+
+HelloWorld
+<h1>@ViewBag.Standart</h1>
+
+@section Author{
+	@Model.Author
+	}
+
+ @if (!string.IsNullOrEmpty(Model.Author))
+ {
+	<textArea data-value ="@Model.Author">It's a Moddddal is Author @Model.Author</textArea>
+ }
