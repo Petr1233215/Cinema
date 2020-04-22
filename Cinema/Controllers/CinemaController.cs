@@ -13,7 +13,7 @@ namespace Cinema.Controllers
         public ActionResult Index(string param)
         {
 			ViewBag.Standart = "start ViewBag";
-            return View(new CinemaViewModel() { Author = "I'm the author the site"});
+            return View(new CinemaViewModel() { Author = "I'm the author the site!!!"});
 			
         }
     }

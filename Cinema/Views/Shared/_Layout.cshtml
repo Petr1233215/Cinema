@@ -1,4 +1,5 @@
 ﻿@using Cinema.Controllers
+@using Cinema.Helpers
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,6 +28,7 @@
                     <li>@Html.ActionLink("Информация", "About", "Home")</li>
                     <li>@Html.ActionLink("Связаться", "Contact", "Home")</li>
 					<li>@Html.ActionLink("Go to cinema", nameof(CinemaController.Index), "Cinema");</li>
+					<li>@Html.ActionLink("Go to login",nameof(AccountController.Login),"Account")</li>
                 </ul>
             </div>
         </div>
@@ -37,8 +39,12 @@
         <footer>
             <p>&copy; @DateTime.Now.Year - мое приложение ASP.NET</p>
 			@* Render Section - Позволяет вставить верстку из Вью в определенное место *@
-			<h3>@RenderSection("Author", false)</h3>
+			<h3>@RenderSection("Author", false) Buy</h3>
+			<h5>Hello</h5>
         </footer>
+		<hr />
+		@Html.Footer("print","No print", "Paragraph");
+		@*@FooterHelper.Footer(Html,"sdf")*@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
