@@ -1,7 +1,17 @@
-﻿
+﻿@model Cinema.Models.LoginModel
 @{
     ViewBag.Title = "Login";
 }
 
 <h2>Login</h2>
+<hr />
+<br />
+<div style="display:inline-flex">
+	<h1 style="color:forestgreen">Login</h1>
+	@Html.EditorFor(m => m.Login)
+</div>
+<div>
+	<h1>Password</h1>
+	@Html.PasswordFor(m => m.Password)
+</div>
 
