@@ -20,6 +20,10 @@ namespace Cinema.Controllers
 		[HttpPost]
 		public ActionResult Login(LoginModel model)
 		{
+			if (ModelState.IsValid)
+			{
+				return View("LoginResult",model);
+			}
 			return View(model);
 		}
     }

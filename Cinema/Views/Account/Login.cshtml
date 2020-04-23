@@ -14,10 +14,14 @@
 	<div style="display:inline-flex">
 		<h1 style="color:forestgreen">Login</h1>
 		@Html.EditorFor(m => m.Login)
+		@Html.ValidationMessageFor(m => m.Login)
 	</div>
 	<div>
 		<h1>Password</h1>
 		@Html.PasswordFor(m => m.Password)
+		@Html.ValidationMessageFor(m => m.Password)
 	</div>
+	<h1>Итоговая Валидация</h1>
+	@Html.ValidationSummary();
 	<button type="submit" style="margin:20px 0">Send Post</button>
 }
