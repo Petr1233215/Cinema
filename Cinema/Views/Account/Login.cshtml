@@ -1,4 +1,5 @@
-﻿@model Cinema.Models.LoginModel
+﻿@using Cinema.Controllers;
+@model Cinema.Models.LoginModel
 @{
     ViewBag.Title = "Login";
 }
@@ -6,12 +7,17 @@
 <h2>Login</h2>
 <hr />
 <br />
-<div style="display:inline-flex">
-	<h1 style="color:forestgreen">Login</h1>
-	@Html.EditorFor(m => m.Login)
-</div>
-<div>
-	<h1>Password</h1>
-	@Html.PasswordFor(m => m.Password)
-</div>
 
+@using (Html.BeginForm(nameof(AccountController.Login), "Account", FormMethod.Post))
+{
+	<h5>@Model.Login  - ВАш логин</h5>
+	<div style="display:inline-flex">
+		<h1 style="color:forestgreen">Login</h1>
+		@Html.EditorFor(m => m.Login)
+	</div>
+	<div>
+		<h1>Password</h1>
+		@Html.PasswordFor(m => m.Password)
+	</div>
+	<button type="submit" style="margin:20px 0">Send Post</button>
+}
