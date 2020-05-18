@@ -10,7 +10,7 @@ namespace Cinema.Models.Domain
 		public int Id { get; set; }
 		public string Title { get; set; }
 		public string Description { get; set; }
-		public string DirectorFIO { get; set; }
+		public string DirectorFio { get; set; }
 		public Genre[] Genres { get; set; }
 		public int  Duration { get; set; }
 		public int MinAge { get; set; }
@@ -19,13 +19,5 @@ namespace Cinema.Models.Domain
 		public float Rating { get; set; }
 		public int? ReleaseDate { get; set; }
 
-	}
-
-	public enum Genre
-	{
-		Comedy,
-		Drama,
-		Horror,
-		Melodrama
 	}
 }

@@ -12,5 +12,6 @@ namespace Cinema.Models.Domain
 		public decimal Cost { get; set; }
 		public Hall Hall { get; set; }
 		public Movie Movie { get; set; }
+		public Format Format { get; set; }
 	}
 }

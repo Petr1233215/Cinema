@@ -129,6 +129,8 @@
     </Compile>
     <Compile Include="Models\CinemaViewModel.cs" />
     <Compile Include="Helpers\FooterHelper.cs" />
+    <Compile Include="Models\Domain\Format.cs" />
+    <Compile Include="Models\Domain\Genre.cs" />
     <Compile Include="Models\Domain\Hall.cs" />
     <Compile Include="Models\Domain\Movie.cs" />
     <Compile Include="Models\Domain\TimeSlot.cs" />
