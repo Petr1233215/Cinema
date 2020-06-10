@@ -1,0 +1,39 @@
+﻿@model Cinema.Models.Domain.Movie[]
+
+
+@{
+    ViewBag.Title = "DisplayMoviesList";
+}
+<style>
+	th,td{
+		padding-right: 15px;
+		padding-left: 15px;
+	}
+</style>
+
+<h2>DisplayMoviesList</h2>
+
+<table>
+	<tr>
+		<th>Id</th>
+		<th>Title</th>
+		<th>Description</th>
+		<th>Poster</th>
+		<th>Action</th>
+	</tr>
+	@foreach (var movie in Model)
+	{
+		//Action потом будет ссылка на едактирование
+		<tr>
+			<td>@movie.Id</td>
+			<td>@movie.Title</td>
+			<td>@movie.Description</td>
+			<td>
+				<img src="@movie.ImageUrl" height="100px" alt="Alternate Text" />
+			</td>
+			<td></td>
+		</tr>
+	}
+	
+</table>
+

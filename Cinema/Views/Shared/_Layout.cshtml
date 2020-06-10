@@ -29,7 +29,8 @@
                     <li>@Html.ActionLink("Связаться", "Contact", "Home")</li>
 					<li>@Html.ActionLink("Go to cinema", nameof(CinemaController.Index), "Cinema");</li>
 	                <li>@Html.ActionLink("Go to login",nameof(AccountController.Login),"Account")</li>
-					<li>@Html.ActionLink("Create Json File", nameof(AdminController.Index),"Admin")</li>
+	                <li>@*@Html.ActionLink("Create Json File", nameof(AdminController.Index),"Admin")*@</li>
+					<li>@Html.ActionLink("Список фильмов", nameof(AdminController.DisplayMoviesList),"Admin")</li>
                 </ul>
             </div>
         </div>
