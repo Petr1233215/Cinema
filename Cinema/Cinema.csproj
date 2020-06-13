@@ -185,6 +185,7 @@
     <Content Include="Views\Admin\DisplayMoviesList.cshtml" />
     <Content Include="Views\Admin\EditMovie.cshtml" />
     <Content Include="Views\Admin\Genres.cshtml" />
+    <Content Include="Views\Admin\EditTimeSlot.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

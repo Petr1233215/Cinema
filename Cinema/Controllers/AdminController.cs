@@ -176,6 +176,12 @@ using System.Web.Mvc;
 
 			return View("EditMovie",model);
 		}
+
+		public ActionResult EditTimeSlot(int id)
+		{
+			var timeSlot = jsonTicketService.GetTimeSlotById(id);
+			return View(timeSlot);
+		}
     }
 
 

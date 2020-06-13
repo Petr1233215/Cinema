@@ -104,6 +104,32 @@ namespace Cinema.Services
 			return true;
 		}
 
+		public bool UpdatetimeSlot(TimeSlot timeSlot)
+		{
+			var fullModel = GetDataFromFile();
+			var timeSlotUpdate = fullModel.TimeSlots.FirstOrDefault(t => t.Id == timeSlot.Id);
+			if (timeSlotUpdate == null)
+			{
+				return false;
+			}
+
+			timeSlotUpdate.StartTime = timeSlot.StartTime;
+			timeSlotUpdate.Cost = timeSlot.Cost;
+			timeSlotUpdate.Format = timeSlot.Format;
+			timeSlotUpdate.MovieId = timeSlot.MovieId;
+			timeSlotUpdate.HallId = timeSlot.HallId;
+
+			SaveToFile(fullModel);
+			return true;
+		}
+
+		//Возможность просмотра TimeSlot для конкретного фильма, то есть в каких сеансах он идет
+		public TimeSlot[] GetTimeSlotsByMovieId(int movieId)
+		{
+			var fullModel = GetDataFromFile();
+			return fullModel.TimeSlots.Where(ts => ts.MovieId == movieId).ToArray();
+		}
+
 		private void SaveToFile(FileModel fullModel)
 		{
 			//путь к файлу
