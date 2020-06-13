@@ -1,19 +1,26 @@
-﻿@model Cinema.Models.Domain.Movie[]
+﻿@using Cinema.Controllers
+@model Cinema.Models.Domain.Movie[]
 
 
 @{
     ViewBag.Title = "DisplayMoviesList";
 }
 <style>
-	th,td{
-		padding-right: 15px;
-		padding-left: 15px;
+	table td {
+		border-bottom: 1px solid black;
+		padding: 0px 10px; /* Поля вокруг содержимого ячеек */
+	}
+	table{
+		border: 2px solid #333;
+		border-collapse: separate;
+		width: 100%;
+		border-spacing: 0 20px;
 	}
 </style>
 
 <h2>DisplayMoviesList</h2>
 
-<table>
+<table >
 	<tr>
 		<th>Id</th>
 		<th>Title</th>
@@ -29,9 +36,9 @@
 			<td>@movie.Title</td>
 			<td>@movie.Description</td>
 			<td>
-				<img src="@movie.ImageUrl" height="100px" alt="Alternate Text" />
+				<img src="@movie.ImageUrl" height="200px" alt="Alternate Text"/>
 			</td>
-			<td></td>
+			<td>@Html.ActionLink("Edit",nameof(AdminController.EditMovie), "Admin",new {id = @movie.Id},null)</td>
 		</tr>
 	}
 	

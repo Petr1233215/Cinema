@@ -151,6 +151,31 @@ using System.Web.Mvc;
 
 			return View(modelMovie);
 		}
+		
+		
+		[HttpGet]
+		public ActionResult EditMovie(int id)
+		{
+			var getMovie = jsonTicketService.GetMovieById(id);
+			return View(getMovie);
+		}
+
+		[HttpPost]
+		public ActionResult EditMovie(Movie model)
+		{
+			if (ModelState.IsValid)
+			{
+				var isUpdate = jsonTicketService.UpdateMovie(model);
+				if (isUpdate)
+				{
+					return RedirectToAction("DisplayMoviesList");
+				}
+
+				return Content("Update failed");
+			}
+
+			return View("EditMovie",model);
+		}
     }
 
 

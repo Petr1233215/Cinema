@@ -1,0 +1,54 @@
+﻿@using Cinema.Controllers
+@model Cinema.Models.Domain.Movie
+
+@{
+	ViewBag.Title = "EditMovie";
+}
+
+<h2>EditMovie</h2>
+@using (Html.BeginForm(nameof(AdminController.EditMovie), "Admin"))
+{
+	<div>
+		@Html.LabelFor(x => x.Description)
+		@Html.EditorFor(x => x.Description)
+		@Html.ValidationMessageFor(x => x.Description)
+	</div>
+	<div>
+		@Html.LabelFor(x => x.Title)
+		@Html.EditorFor(x => x.Title)
+		@Html.ValidationMessageFor(x => x.Title)
+	</div>
+	<div>
+		@Html.LabelFor(x => x.ImageUrl)
+		@Html.EditorFor(x => x.ImageUrl)
+		@Html.ValidationMessageFor(x => x.ImageUrl)
+	</div>
+	<div>
+		@Html.LabelFor(x => x.DirectorFio)
+		@Html.EditorFor(x => x.DirectorFio)
+		@Html.ValidationMessageFor(x => x.DirectorFio)
+	</div>
+	<div>
+		@Html.LabelFor(x => x.Duration)
+		@Html.EditorFor(x => x.Duration)
+		@Html.ValidationMessageFor(x => x.Duration)
+	</div>
+	<div>
+		@Html.LabelFor(x => x.ReleaseDate)
+		@Html.EditorFor(x => x.ReleaseDate)
+		@Html.ValidationMessageFor(x => x.ReleaseDate)
+	</div>
+	<div>
+		@Html.LabelFor(x => x.MinAge)
+		@Html.EditorFor(x => x.MinAge)
+		@Html.ValidationMessageFor(x => x.MinAge)
+	</div>
+	<div>
+		@Html.LabelFor(x => x.Rating)
+		@Html.EditorFor(x => x.Rating)
+		@Html.ValidationMessageFor(x => x.Rating)
+	</div>
+	@Html.Partial("Genres",Model.Genres);
+	<input type ="submit" value="Save changes"/>
+}
+
