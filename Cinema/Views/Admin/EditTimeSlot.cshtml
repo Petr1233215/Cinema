@@ -1,7 +1,40 @@
-﻿@model Cinema.Models.Domain.TimeSlot
+﻿@using Cinema.Controllers
+@model Cinema.Models.Domain.TimeSlot
 @{
-    ViewBag.Title = "EditTimeSlot";
+	ViewBag.Title = "EditTimeSlot";
 }
 
-@using(Html.BeginForm())
+
+
+@using (Html.BeginForm(nameof(AdminController.EditTimeSlot), "Admin"))
+{
+	<div>
+		@Html.LabelFor(c => c.Cost)
+		@Html.EditorFor(c => c.Cost)
+		@Html.ValidationMessageFor(c => c.Cost)
+	</div>
+	<div>
+		@Html.LabelFor(c => c.Format)
+		@Html.EditorFor(c => c.Format)
+		@Html.ValidationMessageFor(c => c.Format)
+	</div>
+	<div>
+		@Html.LabelFor(c => c.StartTime)
+		@Html.EditorFor(c => c.StartTime)
+		@Html.ValidationMessageFor(c => c.StartTime)
+	</div>
+	<div>
+		@Html.LabelFor(c => c.HallId)
+		@Html.EditorFor(c => c.HallId)
+		@Html.ValidationMessageFor(c => c.HallId)
+	</div>
+	<div>
+		@Html.LabelFor(c => c.MovieId)
+		@Html.EditorFor(c => c.MovieId)
+		@Html.ValidationMessageFor(c => c.MovieId)
+	</div>
+	<button type="submit">
+		Send Data
+	</button>
+}
 

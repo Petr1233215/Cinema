@@ -177,10 +177,65 @@ using System.Web.Mvc;
 			return View("EditMovie",model);
 		}
 
+		public ActionResult DisplayTimeSlotList()
+		{
+			var timeSlots = jsonTicketService.GetAllTimeSlots();
+			return View(timeSlots);
+		}
+
+		[HttpGet]
 		public ActionResult EditTimeSlot(int id)
 		{
 			var timeSlot = jsonTicketService.GetTimeSlotById(id);
 			return View(timeSlot);
+		}
+
+		[HttpPost]
+		public ActionResult EditTimeSlot(TimeSlot timeSlot)
+		{
+			if (ModelState.IsValid)
+			{
+				var isUpdate = jsonTicketService.UpdateTimeSlot(timeSlot);
+				if (isUpdate)
+					return RedirectToAction(nameof(AdminController.DisplayTimeSlotList));
+				return Content("Update is failed");
+			}
+
+			return View(timeSlot);
+		}
+
+		public ActionResult EditTimeSlotsForMoview(int id)
+		{
+			var timeSlots = jsonTicketService.GetTimeSlotsByMovieId(id);
+			return View("DisplayTimeSlotList", timeSlots);
+		}
+
+		[HttpGet]
+		public ActionResult DisplayHalls()
+		{
+			var halls = jsonTicketService.GetHalls();
+			return View(halls);
+		}
+
+		[HttpGet]
+		public ActionResult EditHall(int id)
+		{
+			var hall = jsonTicketService.GetHallById(id);
+			return View(hall);
+		}
+
+		[HttpPost]
+		public ActionResult EditHall(Hall hall)
+		{
+			if (ModelState.IsValid)
+			{
+				var isUpdate = jsonTicketService.UpdateHall(hall);
+				if (isUpdate)
+					return RedirectToAction(nameof(AdminController.DisplayHalls), "Admin");
+				return Content("Update is failed");
+			}
+
+			return View(hall);
 		}
     }
 

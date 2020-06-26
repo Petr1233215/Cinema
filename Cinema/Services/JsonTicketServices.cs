@@ -104,7 +104,7 @@ namespace Cinema.Services
 			return true;
 		}
 
-		public bool UpdatetimeSlot(TimeSlot timeSlot)
+		public bool UpdateTimeSlot(TimeSlot timeSlot)
 		{
 			var fullModel = GetDataFromFile();
 			var timeSlotUpdate = fullModel.TimeSlots.FirstOrDefault(t => t.Id == timeSlot.Id);
@@ -138,6 +138,28 @@ namespace Cinema.Services
 			var serializeJson = JsonConvert.SerializeObject(fullModel);
 			//Пишем в файл
 			File.WriteAllText(jsonFilePath,serializeJson);
+		}
+
+		public Hall[] GetHalls()
+		{
+			var fullModel = GetDataFromFile();
+			return fullModel.Halls;
+		}
+
+		public bool UpdateHall(Hall hall)
+		{
+			var fullModel = GetDataFromFile();
+			var updateHall = fullModel.Halls.FirstOrDefault(h => h.Id == hall.Id);
+			if (updateHall == null)
+			{
+				return false;
+			}
+
+			updateHall.Name = hall.Name;
+			updateHall.Places = hall.Places;
+
+			SaveToFile(fullModel);
+			return true;
 		}
 	}
 }

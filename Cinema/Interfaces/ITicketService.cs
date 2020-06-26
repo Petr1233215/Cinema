@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Cinema.Models.Domain;
 
 namespace Cinema.Interfaces
@@ -15,5 +16,13 @@ namespace Cinema.Interfaces
 		TimeSlot[] GetAllTimeSlots();
 
 		bool UpdateMovie(Movie updateMovie);
+
+		bool UpdateTimeSlot(TimeSlot updateTimeSlot);
+
+		TimeSlot[] GetTimeSlotsByMovieId(int id);
+
+		Hall[] GetHalls();
+
+		bool UpdateHall(Hall hall);
 	}
 }

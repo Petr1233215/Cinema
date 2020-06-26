@@ -1,0 +1,50 @@
+﻿@using Cinema.Controllers
+@model Cinema.Models.Domain.TimeSlot[]
+@{
+    ViewBag.Title = "DisplayTimeSlotList";
+}
+<style>
+	table td,th {
+		border-bottom: 1px solid black;
+		padding: 0px 10px; /* Поля вокруг содержимого ячеек */
+	}
+	table{
+		border: 2px solid #333;
+		border-collapse: separate;
+		width: 100%;
+		border-spacing: 0 20px;
+	}
+	.table{
+		margin-top: 50px;
+		}
+</style>
+
+
+<div class="table">
+<table>
+	<tr>
+		<th>Id</th>
+		<th>MovieID</th>
+		<th>HallId</th>
+		<th>Cost</th>
+		<th>Format</th>
+		<th>StartTime</th>
+		<th>Action</th>
+	</tr>
+	@foreach (var m in Model)
+	{
+		<tr>
+			<td>@m.Id</td>
+			<td>@m.HallId</td>
+			<td>@m.MovieId</td>
+			<td>@m.Cost</td>
+			<td>@m.Format</td>
+			<td>@m.StartTime</td>
+			<td>@Html.ActionLink("Edit",nameof(AdminController.EditTimeSlot),"Admin", new {id = m.Id},null)</td>
+		</tr>
+			
+	}
+</table>
+</div>
+
+

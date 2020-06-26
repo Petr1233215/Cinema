@@ -1,0 +1,7 @@
+﻿@using Cinema.Controllers
+<div class="navbar-collapse collapse">
+	<ul class="nav navbar-nav">
+		<li>@Html.ActionLink("Movies",nameof(AdminController.DisplayMoviesList),"Admin")</li>
+		<li>@Html.ActionLink("TimeSlots",nameof(AdminController.DisplayTimeSlotList),"Admin")</li>
+	</ul>
+</div>

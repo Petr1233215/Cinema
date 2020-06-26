@@ -1,0 +1,35 @@
+﻿@using Cinema.Controllers
+@model IEnumerable<Cinema.Models.Domain.Hall>
+
+@{
+    ViewBag.Title = "DisplayHalls";
+}
+
+<h2>DisplayHalls</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Places)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Places)
+        </td>
+        <td>
+	        @Html.ActionLink("Edit",nameof(AdminController.EditHall),"Admin",new {id = item.Id},null)
+        </td>
+    </tr>
+}
+
+</table>

@@ -22,20 +22,21 @@
                 @Html.ActionLink("Имя приложения", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
 				
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Домашняя страница", "Index", "Home") </li>
-                    <li>@Html.ActionLink("Информация", "About", "Home")</li>
-                    <li>@Html.ActionLink("Связаться", "Contact", "Home")</li>
-					<li>@Html.ActionLink("Go to cinema", nameof(CinemaController.Index), "Cinema");</li>
-	                <li>@Html.ActionLink("Go to login",nameof(AccountController.Login),"Account")</li>
-	                <li>@*@Html.ActionLink("Create Json File", nameof(AdminController.Index),"Admin")*@</li>
-					<li>@Html.ActionLink("Список фильмов", nameof(AdminController.DisplayMoviesList),"Admin")</li>
-                </ul>
-            </div>
+	        <div class="navbar-collapse collapse">
+		        <ul class="nav navbar-nav">
+			        <li>@Html.ActionLink("Домашняя страница", "Index", "Home") </li>
+			        <li>@Html.ActionLink("Информация", "About", "Home")</li>
+			        <li>@Html.ActionLink("Связаться", "Contact", "Home")</li>
+			        <li>@Html.ActionLink("Go to cinema", nameof(CinemaController.Index), "Cinema");</li>
+			        <li>@Html.ActionLink("Go to login",nameof(AccountController.Login),"Account")</li>
+			        <li>@*@Html.ActionLink("Create Json File", nameof(AdminController.Index),"Admin")*@</li>
+			        <li>@Html.ActionLink("Admin", nameof(AdminController.DisplayMoviesList),"Admin")</li>
+		        </ul>
+	        </div>
+            @RenderSection("SubNav",false)
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container body-content " style="margin-top: 30px">
         @RenderBody()
         <hr />
         <footer>

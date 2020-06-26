@@ -2,9 +2,12 @@
 @model Cinema.Models.Domain.Movie[]
 
 
-@{
-    ViewBag.Title = "DisplayMoviesList";
+@section SubNav
+{
+	@Html.Partial("SubNavigation")
 }
+
+
 <style>
 	table td {
 		border-bottom: 1px solid black;
@@ -39,6 +42,7 @@
 				<img src="@movie.ImageUrl" height="200px" alt="Alternate Text"/>
 			</td>
 			<td>@Html.ActionLink("Edit",nameof(AdminController.EditMovie), "Admin",new {id = @movie.Id},null)</td>
+			<td>@Html.ActionLink("Edit TimeSlots", nameof(AdminController.EditTimeSlotsForMoview), "Admin", new {id = @movie.Id},null)</td>
 		</tr>
 	}
 	
